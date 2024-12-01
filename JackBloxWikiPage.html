@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="JackBlox - Roblox Gaming YouTuber">
+    <title>JackBlox - Roblox YouTuber</title>
+    <style>
+        /* Reset Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #333;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #333;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #ff4500;
+            text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            padding: 10px 0;
+            margin-top: 10px;
+        }
+        nav ul li {
+            margin: 0 20px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s ease-in-out;
+            font-weight: bold;
+        }
+        nav ul li a:hover {
+            color: #ff4500;
+            transform: scale(1.1);
+        }
+
+        /* Hero Section */
+        .hero {
+            background-image: url('assets/roblox-banner.jpg');
+            background-size: cover;
+            color: white;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            animation: slideIn 1.5s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            letter-spacing: 2px;
+            font-weight: bold;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-top: 10px;
+            animation: fadeIn 2s ease-out;
+        }
+
+        .cta-button, .store-button {
+            background-color: #ff4500;
+            padding: 15px 30px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            margin-top: 20px;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .cta-button:hover, .store-button:hover {
+            background-color: #ff6347;
+            transform: scale(1.05);
+        }
+
+        /* About Section */
+        section {
+            padding: 50px 20px;
+            margin: 30px 0;
+            background-color: #fff;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            position: relative;
+        }
+
+        section h2 {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        section p {
+            font-size: 1.2rem;
+            line-height: 1.7;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        /* Video Section */
+        .featured-videos {
+            background-color: #f9f9f9;
+            padding: 50px 20px;
+        }
+
+        .video-grid {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .video-item {
+            width: 48%;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .video-item:hover {
+            transform: scale(1.05);
+        }
+
+        .video-item iframe {
+            width: 100%;
+            height: 315px;
+            border: none;
+        }
+
+        /* Store Section */
+        #store {
+            background-color: #eeeeee;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        #store h2 {
+            font-size: 3rem;
+            margin-bottom: 30px;
+        }
+
+        .store-item {
+            display: inline-block;
+            background-color: white;
+            width: 250px;
+            height: 350px;
+            margin: 20px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .store-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .store-item img {
+            width: 100%;
+            height: 200px;
+            border-radius: 8px;
+        }
+
+        .store-item h3 {
+            margin: 15px 0;
+            font-size: 1.5rem;
+        }
+
+        .store-item p {
+            font-size: 1rem;
+            color: #666;
+        }
+
+        .add-to-cart-btn {
+            background-color: #ff4500;
+            padding: 10px 15px;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .add-to-cart-btn:hover {
+            background-color: #ff6347;
+        }
+
+        /* Contact Form */
+        .contact-form {
+            padding: 50px 20px;
+            background-color: #fff;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            margin: 30px 0;
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .contact-form input:focus, .contact-form textarea:focus {
+            border-color: #ff4500;
+            outline: none;
+        }
+
+        .contact-form button {
+            background-color: #ff4500;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            background-color: #ff6347;
+            transform: scale(1.05);
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        footer a {
+            color: #ff4500;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #ff6347;
+            text-decoration: underline;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">JackBlox</div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#videos">Videos</a></li>
+                <li><a href="#store" class="store-button">Store</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div>
+            <h1>Welcome to JackBlox</h1>
+            <p>Gaming on Roblox, creating amazing experiences!</p>
+            <a href="#store" class="cta-button">Visit Store</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2>About JackBlox</h2>
+        <p>JackBlox is an experienced Roblox gamer and content creator who shares exciting gameplay, tips, and tutorials. Follow his journey as he explores the endless possibilities in the Roblox world!</p>
+    </section>
+
+    <!-- Video Section -->
+    <section class="featured-videos" id="videos">
+        <h2>Featured Videos</h2>
+        <div class="video-grid">
+            <div class="video-item">
+                <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="Video 1"></iframe>
+            </div>
+            <div class="video-item">
+                <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="Video 2"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Store Section -->
+    <section id="store">
+        <h2>JackBlox Store</h2>
+        <div class="store-item">
+            <img src="assets/product1.jpg" alt="Product 1">
+            <h3>Product 1</h3>
+            <p>Description of Product 1.</p>
+            <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <div class="store-item">
+            <img src="assets/product2.jpg" alt="Product 2">
+            <h3>Product 2</h3>
+            <p>Description of Product 2.</p>
+            <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact JackBlox</h2>
+        <form class="contact-form">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 JackBlox. All Rights Reserved. | <a href="#">Privacy Policy</a></p>
+    </footer>
+</body>
+</html>
